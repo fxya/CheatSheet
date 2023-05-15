@@ -2,67 +2,67 @@
 
 ### Variables and Constants
 - Declaration with `var`, `let`, and `const`:
-  ```javascript
-  var age = 25;
-  let name = 'John';
-  const PI = 3.14159;
-  ```
+```javascript
+var age = 25;
+let name = 'John';
+const PI = 3.14159;
+```
 
 ### Data Types
 - Primitive types: `number`, `string`, `boolean`, `null`, `undefined`
 - Complex types: `object`, `array`, `function`, `date`
-  ```javascript
-  let age = 25; // number
-  let name = 'John'; // string
-  let isStudent = true; // boolean
-  let person = { name: 'John', age: 25 }; // object
-  let numbers = [1, 2, 3, 4, 5]; // array
-  function greet() { /* ... */ } // function
-  let now = new Date(); // date
-  ```
+```javascript
+let age = 25; // number
+let name = 'John'; // string
+let isStudent = true; // boolean
+let person = { name: 'John', age: 25 }; // object
+let numbers = [1, 2, 3, 4, 5]; // array
+function greet() { /* ... */ } // function
+let now = new Date(); // date
+```
 
 ### Control Flow
 - `if` statement:
-  ```javascript
-  if (age >= 18) {
-    console.log('You are an adult');
-  } else {
-    console.log('You are a minor');
-  }
-  ```
+```javascript
+if (age >= 18) {
+  console.log('You are an adult');
+} else {
+  console.log('You are a minor');
+}
+```
 
 - `for` loop:
-  ```javascript
-  for (let i = 0; i < 5; i++) {
-    console.log(i);
-  }
-  ```
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
 
 - `while` loop:
-  ```javascript
-  let i = 0;
-  while (i < 5) {
-    console.log(i);
-    i++;
-  }
-  ```
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+```
 
 ### Functions
 - Function declaration:
-  ```javascript
-  function greet(name) {
-    console.log('Hello, ' + name);
-  }
-  greet('John');
-  ```
+```javascript
+function greet(name) {
+  console.log('Hello, ' + name);
+}
+greet('John');
+```
 
 - Arrow function:
-  ```javascript
-  const greet = (name) => {
-    console.log('Hello, ' + name);
-  };
-  greet('John');
-  ```
+```javascript
+const greet = (name) => {
+  console.log('Hello, ' + name);
+};
+greet('John');
+```
   ```javascript
   // Regular Function Expression
   const multiply = function (a, b) {
@@ -79,17 +79,17 @@
 
 ### Objects
 - Object creation and property access:
-  ```javascript
-  let person = {
-    name: 'John',
-    age: 25,
-    greet() {
-      console.log('Hello, ' + this.name);
-    }
-  };
-  console.log(person.name);
-  person.greet();
-  ```
+```javascript
+let person = {
+  name: 'John',
+  age: 25,
+  greet() {
+    console.log('Hello, ' + this.name);
+  }
+};
+console.log(person.name);
+person.greet();
+```
   
 ### Classes
   ```javascript
@@ -237,57 +237,57 @@ JavaScript.
 
 ### Type Annotations and Declarations
 - Variable type annotation:
-  ```typescript
-  let age: number = 25;
-  let name: string = 'John';
-  ```
+```typescript
+let age: number = 25;
+let name: string = 'John';
+```
 
 - Function parameter and return type annotation:
-  ```typescript
-  function greet(name: string): void {
-    console.log('Hello, ' + name);
-  }
-  ```
+```typescript
+function greet(name: string): void {
+  console.log('Hello, ' + name);
+}
+```
 
 ### Interfaces and Type Definitions
 - Interface declaration and usage:
-  ```typescript
-  interface Person {
-    name: string;
-    age: number;
-  }
-  function greet(person: Person): void {
-    console.log('Hello, ' + person.name);
-  }
-  ```
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+function greet(person: Person): void {
+  console.log('Hello, ' + person.name);
+}
+```
 
 ### Enumerations (Enums)
 - Enum declaration and usage:
-  ```typescript
-  enum Color {
-    Red,
-    Green,
-    Blue,
-  }
-  let favoriteColor: Color = Color.Blue;
-  ```
+```typescript
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+let favoriteColor: Color = Color.Blue;
+```
 
 ### Access Modifiers
 - Class with public and private members:
-  ```typescript
-  class Person {
-    private name: string;
-    public constructor(name: string) {
-      this.name = name;
-    }
-    public greet(): void {
-      console.log('Hello, ' + this.name);
-    }
+```typescript
+class Person {
+  private name: string;
+  public constructor(name: string) {
+    this.name = name;
   }
-  let person = new Person('John');
-  person.name; // Error: Property 'name' is private
-  person.greet(); // Output: Hello, John
-  ```
+  public greet(): void {
+    console.log('Hello, ' + this.name);
+  }
+}
+let person = new Person('John');
+person.name; // Error: Property 'name' is private
+person.greet(); // Output: Hello, John
+```
   
 ### Type inference
 ```typescript
@@ -342,7 +342,7 @@ class Student extends Person {
 
   constructor(name: string, age: number, studentId: string) {
     super(name, age);
-    this.studentId = studentId;
+    this.studentId = studentId; // Initialize the studentId property
   }
 
   study() {
