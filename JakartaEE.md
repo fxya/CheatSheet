@@ -1,4 +1,4 @@
-git# Java EE Cheat Sheet
+# Jakarta EE Cheat Sheet
 
 ### Servlets
 - Servlets are Java classes that handle HTTP requests and generate HTTP responses.

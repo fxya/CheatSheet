@@ -1,119 +1,137 @@
-# Key Java EE Annotations
+## Key Jakarta EE Annotations
 
-### 1. `@Entity`
-- Used to define an entity class that represents a table in a database. Each instance of the class corresponds to a row in the table.
+### 1. @ApplicationScoped
+- The `@ApplicationScoped` annotation is used to specify that a bean should have a lifecycle that is scoped to the entire application.
 
 ```java
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
+public class MyService {
+    // ...
+}
+```
+
+### 2. @RequestScoped
+- The `@RequestScoped` annotation is used to specify that a bean should have a lifecycle that is scoped to a single HTTP request.
+
+```java
+import javax.enterprise.context.RequestScoped;
+
+@RequestScoped
+public class MyBean {
+    // ...
+}
+```
+
+### 3. @SessionScoped
+- The `@SessionScoped` annotation is used to specify that a bean should have a lifecycle that is scoped to a user session.
+
+```java
+import javax.enterprise.context.SessionScoped;
+
+@SessionScoped
+public class UserData {
+    // ...
+}
+```
+
+### 4. @Inject
+- The `@Inject` annotation is used to indicate that a dependency should be injected into a class.
+
+```java
+import javax.inject.Inject;
+
+public class MyService {
+    @Inject
+    private MyRepository repository;
+    // ...
+}
+```
+
+### 5. @EJB
+- The `@EJB` annotation is used to inject an Enterprise JavaBean (EJB) into another class.
+
+```java
+import javax.ejb.EJB;
+
+public class MyService {
+    @EJB
+    private MyBean bean;
+    // ...
+}
+```
+
+### 6. @Entity
+- The `@Entity` annotation is used to mark a class as an entity in the Java Persistence API (JPA).
+
+```java
+import javax.persistence.Entity;
+
 @Entity
-public class User {
-  @Id
-  private Long id;
-  private String name;
-  // ...
+public class Customer {
+    // ...
 }
 ```
 
-### 2. `@PersistenceContext`
-- Used to inject a reference to the persistence context, which provides access to the EntityManager for managing entity objects.
+### 7. @Resource
+- The `@Resource` annotation is used to inject a resource (such as a data source or JMS queue) into a class.
 
 ```java
-@Stateless
-public class UserService {
-  @PersistenceContext
-  private EntityManager entityManager;
-  // ...
+import javax.annotation.Resource;
+
+public class MyService {
+    @Resource
+    private DataSource dataSource;
+    // ...
 }
 ```
 
-### 3. `@Repository`
-- Used to indicate that a class is a repository or a data access object (DAO) component.
+### 8. @Path
+- The `@Path` annotation is used to specify the URL path for a RESTful web service endpoint.
 
 ```java
-@Repository
-public class UserRepository {
-  @PersistenceContext
-  private EntityManager entityManager;
-  // ...
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/users")
+public class UserResource {
+    @GET
+    public String getUsers() {
+        // ...
+    }
 }
 ```
 
-### 4. `@Service`
-- Used to indicate that a class is a service component that provides business logic and acts as an intermediary between controllers and repositories.
+### 9. @Produces
+- The `@Produces` annotation is used to specify the media types that a RESTful web service can produce.
 
 ```java
-@Service
-public class UserService {
-  @Autowired
-  private UserRepository userRepository;
-  // ...
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/users")
+public class UserResource {
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<User> getUsers() {
+        // ...
+    }
 }
 ```
 
-### 5. `@RestController`
-- Used to indicate that a class is a RESTful controller that handles HTTP requests and returns responses as JSON or XML.
+### 10. @TransactionAttribute
+- The `@TransactionAttribute` annotation is used to specify the transaction attribute for an EJB method.
 
 ```java
-@RestController
-@RequestMapping("/users")
-public class UserController {
-  @Autowired
-  private UserService userService;
-  // ...
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+@TransactionAttribute(TransactionAttributeType.REQUIRED)
+public class MyService {
+    // ...
 }
 ```
 
-### 6. `@RequestMapping`
-- Used to map HTTP requests to methods in a controller. It specifies the URL path and the HTTP method to handle.
-
-```java
-@RestController
-@RequestMapping("/users")
-public class UserController {
-  @GetMapping("/{id}")
-  public User getUserById(@PathVariable Long id) {
-    // Code to retrieve user by ID
-  }
-}
-```
-
-### 7. `@RequestBody`
-- Used to bind the request body to a method parameter in a controller. It is used when receiving data from the client in the form of JSON or XML.
-
-```java
-@RestController
-@RequestMapping("/users")
-public class UserController {
-  @PostMapping
-  public User createUser(@RequestBody User user) {
-    // Code to create a new user
-  }
-}
-```
-
-### 8. `@PathParam`
-- Used to extract path parameters from the URL in a RESTful controller.
-
-```java
-@RestController
-@RequestMapping("/users")
-public class UserController {
-  @GetMapping("/{id}")
-  public User getUserById(@PathVariable Long id) {
-    // Code to retrieve user by ID
-  }
-}
-```
-
-### 9. `@QueryParam`
-- Used to extract query parameters from the URL in a RESTful controller.
-
-```java
-@RestController
-@RequestMapping("/users")
-public class UserController {
-  @GetMapping
-  public List<User> getUsers(@QueryParam("page") int page, @QueryParam("limit") int limit) {
-    // Code to retrieve users with pagination
-  }
-}
-```
