@@ -67,6 +67,7 @@
 - Key-Value Database: Stores data in key-value pairs.
 - Wide-Column Database: Stores data in tables with rows and dynamic columns.
 - Graph Database: Stores data in nodes and edges.
+- Vector Database: Stores data in vectors (arrays) to allow fast search and analysis of similar items.
 
 ### Miscellaneous
 - A distributed computer system cannot guarantee all of the following three properties at the same time: Consistency, Availability, Partition tolerance.
