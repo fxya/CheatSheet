@@ -63,6 +63,22 @@ export default DataFetcher;
 ```
 - The `useEffect` hook is used for side effects in functional components. In this example, the effect is fetching data from an API, and the empty dependency array `[]` ensures that the effect runs only once after the initial render.
 
+### useCallback Hook
+```typescript
+import React, { useCallback } from 'react';
+
+const Button: React.FC = () => {
+  const handleClick = useCallback(() => {
+    // Handle click event
+  }, []);
+
+  return <button onClick={handleClick}>Click Me</button>;
+};
+````
+- The `useCallback` hook is used to memoize functions. In this example, the `handleClick` function is memoized and passed as a prop to the `onClick` event handler.
+- The `useCallback` hook is useful when passing callbacks to child components that rely on reference equality to prevent unnecessary re-renders.
+- The `useCallback` hook is also useful when passing callbacks to child components that rely on reference equality to prevent unnecessary re-renders.
+
 ### Next.js Dynamic Routes
 ```typescript
 // pages/users/[id].tsx
