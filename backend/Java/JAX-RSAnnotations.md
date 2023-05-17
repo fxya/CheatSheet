@@ -1,7 +1,7 @@
 # JAX-RS/Jersey annotations with code examples
 
 ### Resource Annotation
-Use `@Path` to define the base URI path for the resource class or method.
+- Use `@Path` to define the base URI path for the resource class or method.
 
 ```java
 @Path("/users")
@@ -18,7 +18,7 @@ public class UserResource {
 ```
 
 ### HTTP Methods
-Use `@GET`, `@POST`, `@PUT`, `@DELETE`, `@HEAD`, or `@OPTIONS` to define HTTP methods.
+- Use `@GET`, `@POST`, `@PUT`, `@DELETE`, `@HEAD`, or `@OPTIONS` to define HTTP methods.
 
 ```java
 @Path("/users")
@@ -49,7 +49,7 @@ public class UserResource {
 ```
 
 ### Path Parameters
-Use `@PathParam` to extract path parameters.
+- Use `@PathParam` to extract path parameters.
 
 ```java
 @Path("/users")
@@ -64,7 +64,7 @@ public class UserResource {
 ```
 
 ### Query Parameters
-Use `@QueryParam` to extract query parameters.
+- Use `@QueryParam` to extract query parameters.
 
 ```java
 @Path("/users")
@@ -78,7 +78,7 @@ public class UserResource {
 ```
 
 ### Request Headers
-Use `@HeaderParam` to extract request headers.
+- Use `@HeaderParam` to extract request headers.
 
 ```java
 @Path("/users")
@@ -92,7 +92,7 @@ public class UserResource {
 ```
 
 ### Request Body
-Use `@Consumes` to specify the MIME media types consumed by the resource.
+- Use `@Consumes` to specify the MIME media types consumed by the resource.
 
 ```java
 @Path("/users")
@@ -107,7 +107,7 @@ public class UserResource {
 ```
 
 ### Response
-Use `@Produces` to specify the MIME media types produced by the resource.
+- Use `@Produces` to specify the MIME media types produced by the resource.
 
 ```java
 @Path("/users")
@@ -122,7 +122,7 @@ public class UserResource {
 ```
 
 ### Exception Handling
-Use `@Provider` to define an exception mapper.
+- Use `@Provider` to define an exception mapper.
 
 ```java
 @Provider
